@@ -299,9 +299,19 @@ function SloganSea() {
 }
 
 function LogoMark({ className }: { className?: string }) {
+  const [reduced, setReduced] = useState(false);
+  useEffect(() => {
+    setReduced(window.matchMedia("(prefers-reduced-motion: reduce)").matches);
+  }, []);
   return (
     <span className={`logo-stage ${className ?? ""}`}>
-      <img src="/brand/logo-shark.png" alt="Fishing Rebels" className="logo-swim h-full w-full object-contain" />
+      <img
+        src={reduced ? "/brand/logo-charro.png?v=5" : "/brand/logo-charro.webp?v=5"}
+        alt="Fishing Rebels, charro riding a shark"
+        width={260}
+        height={352}
+        className="logo-charro h-full w-full object-contain"
+      />
     </span>
   );
 }
@@ -315,7 +325,7 @@ function Reel() {
     if (reduced) return;
     const wide = window.matchMedia("(min-width: 768px)").matches;
     el.poster = wide ? "/hero/split-wide.jpg" : "/hero/split-mobile.jpg";
-    el.src = wide ? "/hero/shark-wide.mp4" : "/hero/shark-mobile.mp4";
+    el.src = wide ? "/hero/shark-wide.mp4?v=5" : "/hero/shark-mobile.mp4?v=5";
     void el.play().catch(() => undefined);
   }, []);
   return (
@@ -645,8 +655,8 @@ export function RebelSite() {
       </div>
       <HookCursor />
 
-      <header className="relative z-30 px-4 pt-3">
-        <div className="absolute right-3 top-3 z-40 flex items-center gap-2">
+      <header className="pointer-events-none relative z-30 h-0">
+        <div className="pointer-events-auto absolute right-3 top-3 z-40 flex items-center gap-2">
           <button
             type="button"
             className="glass grid h-11 w-11 place-items-center rounded-full text-ink"
@@ -660,10 +670,10 @@ export function RebelSite() {
             {menu ? <X /> : <Menu />}
           </button>
         </div>
-        <a href="#top" className="mx-auto block w-[min(96vw,760px)]" onClick={() => setMenu(false)}>
+        <a href="#top" className="pointer-events-auto absolute left-2 top-2 z-30 block w-[min(34vw,148px)] drop-shadow-xl" onClick={() => setMenu(false)}>
           <LogoMark className="block h-auto w-full" />
         </a>
-        <nav className="site-nav mx-auto mt-1 hidden max-w-6xl flex-wrap justify-center gap-x-5 gap-y-2 px-4 lg:flex" aria-label="Primary">
+        <nav className="site-nav pointer-events-auto absolute left-40 right-4 top-4 hidden flex-wrap justify-end gap-x-5 gap-y-2 lg:flex" aria-label="Primary">
           {NAV.map((item) => (
             <a key={item.label} href={item.href} onClick={cast}>
               {item.label}
@@ -671,7 +681,7 @@ export function RebelSite() {
           ))}
         </nav>
         {menu ? (
-          <div className="glass mx-auto mt-3 max-w-sm rounded-card p-4 lg:hidden">
+          <div className="glass pointer-events-auto absolute left-3 right-3 top-16 z-40 max-w-sm rounded-card p-4 lg:hidden">
             {NAV.map((item) => (
               <a key={item.label} href={item.href} className="block py-2 text-sm font-semibold tracking-wide text-ink" onClick={() => { setMenu(false); cast(); }}>
                 {item.label}
@@ -683,6 +693,8 @@ export function RebelSite() {
           </div>
         ) : null}
       </header>
+
+      <div className="shark-open" aria-hidden />
 
       <main id="top" className="page-sheet light-veil relative z-10">
         <section className="mx-auto grid max-w-6xl items-center gap-8 px-4 py-8 lg:grid-cols-2">
@@ -1019,10 +1031,10 @@ export function RebelSite() {
         </section>
       </main>
 
-      <footer className="light-veil relative z-10 border-t border-black/10 px-4 py-10">
+      <footer className="footer-clear relative z-10 px-4 py-10">
         <div className="mx-auto flex max-w-6xl flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
           <div>
-            <LogoMark className="block h-20 w-72" />
+            <LogoMark className="block h-28 w-20" />
             <p className="mt-3 max-w-md font-brush text-2xl text-gold">WE CATCH FISH OR WE DON'T GO HOME!</p>
             <p className="mt-3 text-sm text-mist">Best fishing charters in Puerto Vallarta</p>
             <p className="text-sm text-mist">Trips from 4 hours up to 10 days</p>
@@ -1034,6 +1046,7 @@ export function RebelSite() {
           </div>
         </div>
       </footer>
+      <div className="shark-open shark-open-end" aria-hidden />
       {drops.map((drop) => (
         <span
           key={drop.id}

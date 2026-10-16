@@ -312,9 +312,25 @@ section[id] {
   scroll-margin-top: 5.5rem;
 }
 
-.hero-stage {
-  min-height: 100svh;
-  padding-top: 5.5rem;
+.shark-open {
+  height: 70svh;
+  background: transparent;
+  pointer-events: none;
+}
+
+.footer-clear {
+  color: #f4fbff;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.85), 0 8px 24px rgba(0, 0, 0, 0.55);
+  background: transparent;
+}
+
+.footer-clear .text-mist,
+.footer-clear .text-ink {
+  color: #f4fbff;
+}
+
+.shark-open-end {
+  height: 100svh;
 }
 
 .hero-type {
@@ -322,9 +338,8 @@ section[id] {
 }
 
 .light-veil {
-  background: rgba(244, 244, 244, 0.5);
+  background: linear-gradient(to bottom, rgba(244, 244, 244, 0) 0, rgba(244, 244, 244, 0.78) 4.5rem);
   color: #1b1b1b;
-  backdrop-filter: blur(3px);
 }
 
 .light-veil .text-foam,
@@ -376,10 +391,8 @@ section[id] {
   background: #111;
 }
 
-.logo-swim {
-  animation: logo-swim 4.6s ease-in-out infinite;
-  filter: drop-shadow(0 16px 18px rgba(0, 0, 0, 0.35));
-  transform-origin: center;
+.logo-charro {
+  filter: drop-shadow(0 14px 16px rgba(0, 0, 0, 0.42));
 }
 
 @keyframes logo-swim {
@@ -455,9 +468,18 @@ section[id] {
   }
 }
 
+.reel video {
+  object-position: center 68%;
+}
+
 @media (min-width: 768px) {
   .reel {
     background-image: url("/hero/split-wide.jpg");
+    background-position: center;
+  }
+
+  .reel video {
+    object-position: center;
   }
 }
 
