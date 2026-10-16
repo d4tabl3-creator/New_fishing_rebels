@@ -6,7 +6,7 @@
 import { existsSync, readFileSync } from "node:fs";
 import { join } from "node:path";
 
-export const DEFAULT_APP_NAME = "Grok App";
+export const DEFAULT_APP_NAME = "Fishing Rebels";
 export const OG_SERVICE_URL_DEFAULT = "https://og.grok.me";
 export const OG_SITE_REL_PATH = "src/lib/og/site.json";
 
@@ -167,13 +167,24 @@ export function renderWebManifest(hostHeader) {
       start_url: "/",
       scope: "/",
       display: "standalone",
-      background_color: "#000000",
-      theme_color: "#000000",
+      background_color: "#051a2e",
+      theme_color: "#051a2e",
       icons: [
         {
           src: "/__grok/icon-180.png",
           sizes: "180x180",
           type: "image/png",
+        },
+        {
+          src: "/__grok/icon-192.png",
+          sizes: "192x192",
+          type: "image/png",
+        },
+        {
+          src: "/__grok/icon-512.png",
+          sizes: "512x512",
+          type: "image/png",
+          purpose: "any",
         },
       ],
     },
