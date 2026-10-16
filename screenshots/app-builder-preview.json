@@ -1,0 +1,36 @@
+{
+  "url": "http://127.0.0.1:8080/",
+  "viewports": {
+    "desktop": {
+      "width": 1280,
+      "height": 800,
+      "status": 200,
+      "title": "Fishing Rebels | Puerto Vallarta Fishing Charters & Deep Sea Fishing",
+      "hasCanvas": false,
+      "bodyTextLen": 6204,
+      "bodyTextHash": "744481c37727fab5af1c672c91b53f79a13412169025ec7ed9e1df52b4a5f999",
+      "bodyTextPrefix": "HOME ABOUT US BOATS CATCHING GALLERY CONTACT US PUERTO VALLARTA ",
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "screenshot": "/workspace/screenshots/app-builder-preview.png"
+    },
+    "mobile": {
+      "width": 390,
+      "height": 844,
+      "status": 200,
+      "title": "Fishing Rebels | Puerto Vallarta Fishing Charters & Deep Sea Fishing",
+      "hasCanvas": false,
+      "bodyTextLen": 5969,
+      "bodyTextHash": "5120afbcd3feb001499beef7ff962a3646bf6c3a14048024f1ae321cab517983",
+      "bodyTextPrefix": "PRIVATE SPORTFISHING • PUERTO VALLARTA, MEXICO Puerto Vallarta F",
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "screenshot": "/workspace/screenshots/app-builder-preview-mobile.png"
+    }
+  },
+  "brandWarnings": [],
+  "authWarnings": [],
+  "verdictFile": "/workspace/screenshots/app-builder-preview.json"
+}
