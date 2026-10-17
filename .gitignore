@@ -3,3 +3,6 @@ node_modules/
 .github_repo
 .env
 .env.*
+
+# Grok exports a stale prebuilt copy; Vercel must build from source
+.vercel/output/
